@@ -13,7 +13,7 @@ export default class FormsController {
     //venue
     public async venue({ request, response }: HttpContextContract){
         try{
-            const payLoad = await request.validate(FormvenueValidator);
+           await request.validate(FormvenueValidator);
             //  response.created({ message: 'createdd!'})    
            } catch (error){
                response.unprocessableEntity({ errors: error.messages})
@@ -22,7 +22,7 @@ export default class FormsController {
     //booking
     public async bookings({ request, response }: HttpContextContract){
         try{
-            const payLoad = await request.validate(FormbookingValidator);
+            await request.validate(FormbookingValidator);
             //response.created({ message: 'created!', data: payLoad})    
            } catch (error){
                response.unprocessableEntity({ errors: error.messages})

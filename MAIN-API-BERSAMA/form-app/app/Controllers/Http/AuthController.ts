@@ -28,7 +28,7 @@ export default class AuthController {
           //generate random otp
           const otp_code = Math.floor(100000 + Math.random() * 900000)
 
-          let saveCode = await Database.table('otp_codes').insert({otp_code: otp_code, user_id: newUser.id})
+          await Database.table('otp_codes').insert({otp_code: otp_code, user_id: newUser.id})
           await Mail.send((message) =>{
             message
               .from('admin@sanberdev.com')
