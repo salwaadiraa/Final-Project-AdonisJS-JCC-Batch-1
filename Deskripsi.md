@@ -4,3 +4,6 @@ Data Individu :
 Nama : Salwa Adira Ramadhania
 Kelas : Back End Developer Node JS
 Email : salwaadiraa08@gmail.com
+
+Link deploy heroku : https://api-main-bersama.herokuapp.com/
+masih tidak bisa application error
