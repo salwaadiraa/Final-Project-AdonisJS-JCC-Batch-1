@@ -1,0 +1,16 @@
+definitions:
+  Booking:
+    type: object
+    properties:
+      id:
+        type: integer
+      play_date_start:
+        type: timestamp
+      play_date_end:
+        type: timestamp
+      title:
+        type: string
+    required:
+      - play_date_start
+      - play_date_end
+      - title

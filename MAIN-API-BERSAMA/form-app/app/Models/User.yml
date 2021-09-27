@@ -1,0 +1,25 @@
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      role:
+        type: string
+      password_confirmed:
+        type: string
+    required:
+      - name
+      - email
+      - password
+      - role
+      - password_confirmed
+
+
+ 

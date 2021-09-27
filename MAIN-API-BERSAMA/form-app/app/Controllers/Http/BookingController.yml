@@ -1,0 +1,123 @@
+/api/v1/bookings:
+  get:
+    security:
+     - bearerAuth: []
+    tags:
+     - Booking
+    summary: Menampilkan Index Booking
+    responses:
+      200:
+        description: Success get data Index Bookings
+      422:
+        description: unauthorized access
+
+/api/v1/fields/{field_id}/bookings:
+  post:
+    security:
+     - bearerAuth: []
+    tags:
+     - Booking
+    summary: Membuat data Booking baru
+    parameters:
+     - in: path
+       name: field_id
+       schema:
+         type: integer
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/definitions/Booking'
+        application/json:
+          schema:
+            $ref: '#/definitions/Booking'
+    responses:
+      201:
+        description: Berhasil booking 
+      401:
+        description: unauthorized access
+
+/api/v1/bookings/{id}:
+  put:
+    security:
+     - bearerAuth: []
+    tags:
+     - Booking
+    summary: Join dan Unjoin Booking
+    description: execute 1 kali join, execute 2 kali unjoin
+    parameters:
+     - in: path
+       name: id
+       schema:
+         type: integer
+    responses:
+      201:
+        description: Berhasil Join/ Unjoin 
+      401:
+        description: unauthorized access
+
+
+  get:
+    security:
+     - bearerAuth: []
+    tags:
+     - Booking
+    summary: show join
+    parameters:
+     - in: path
+       name: id
+       schema:
+         type: integer
+    responses:
+      201:
+        description: Success
+      401:
+        description: unauthorized access
+  
+
+/api/v1/fields/{field_id}/bookings/{id]:
+  put:
+    security:
+     - bearerAuth: []
+    tags:
+     - Booking
+    summary: Update Booking
+    description: Untuk update form booking
+    parameters:
+     - in: path
+       name: field_id
+       schema:
+         type: integer
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/definitions/Booking'
+        application/json:
+          schema:
+            $ref: '#/definitions/Booking'    
+    responses:
+      201:
+        description: Berhasil Update Booking
+      401:
+        description: unauthorized access
+
+/api/v1/bookings/{booking_id}:
+  delete:
+    security:
+     - bearerAuth: []
+    tags:
+     - Booking
+    summary: Menghapus data booking yang belum ada join
+    parameters:
+     - in: path
+       name: field_id
+       schema:
+         type: integer
+    responses:
+      201:
+        description: Deleted
+      401:
+        description: unauthorized access

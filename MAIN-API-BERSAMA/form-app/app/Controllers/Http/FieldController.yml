@@ -1,0 +1,116 @@
+/api/v1/venues/{venue_id}/fields:
+  get:
+    security:
+     - bearerAuth: []
+    tags:
+     - Fields
+    summary: Menampilkan Index Fields
+    parameters:
+     - in: path
+       name: venue_id
+       schema:
+         type: integer
+    responses:
+      200:
+        description: Success get data Index Fields
+      422:
+        description: unauthorized access
+
+  post:
+    security:
+     - bearerAuth: []
+    tags:
+     - Fields
+    summary: Membuat data Fields baru
+    parameters:
+     - in: path
+       name: venue_id
+       schema:
+         type: integer
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/definitions/Field'
+        application/json:
+          schema:
+            $ref: '#/definitions/Field'
+    responses:
+      201:
+        description: Berhasil menambakan data field baru 
+      401:
+        description: unauthorized access
+
+/api/v1/venues/{venue_id}/fields/{id}:
+  get:
+    security:
+     - bearerAuth: []
+    tags:
+     - Fields
+    summary: Menampilkan Fields by id
+    parameters:
+     - in: path
+       name: venue_id
+       schema:
+         type: integer
+     - in: path
+       name: id
+       schema:
+         type: integer
+    responses:
+      200:
+        description: Success get data fields by id
+      400:
+        description: Unexpected error
+
+  put:
+    security:
+     - bearerAuth: []
+    tags:
+     - Fields
+    summary: update data Field by id
+    parameters:
+     - in: path
+       name: venue_id
+       schema:
+         type: integer
+     - in: path
+       name: id
+       schema:
+         type: integer
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/definitions/Field'
+        application/json:
+          schema:
+            $ref: '#/definitions/Field'
+    responses:
+      200:
+        description: Success Update Fields!
+      422:
+        description: unauthorized access
+
+  delete:
+    security:
+     - bearerAuth: []
+    tags:
+     - Fields
+    summary: Menghapus data Field by id
+    parameters:
+     - in: path
+       name: venue_id
+       schema:
+         type: integer
+     - in: path
+       name: id
+       schema:
+         type: integer
+    responses:
+      201:
+        description: Deleted
+      401:
+        description: unauthorized access

@@ -1,0 +1,11 @@
+definitions:
+  Join:
+    type: object
+    properties:
+      user_id:
+        type: integer
+      field_id:
+        type: integer
+    required:
+      - user_id
+      - field_id

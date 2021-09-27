@@ -1,0 +1,57 @@
+/api/v1/register:
+  post:
+    tags:
+     - Authentication
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#definitions/User'
+        application/json:
+          schema:
+            $ref: '#definitions/User'
+    responses:
+      201:
+        description: register success, please check mail and verify your otp code
+      422:
+        description: request invalid
+
+/api/v1/login:
+  post:
+    tags:
+     - Authentication
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#definitions/Login'
+        application/json:
+          schema:
+            $ref: '#definitions/Login'
+    responses:
+      201:
+        description: Login success
+      422:
+        description: request invalid Login Error
+
+/api/v1/otp-confirmation:
+  post:
+    tags:
+     - Authentication
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#definitions/Verify'
+        application/json:
+          schema:
+            $ref: '#definitions/Verify'
+    responses:
+      201:
+        description: Berhasil Verifikasi OTP
+      422:
+        description: Gagal Verifikasi OTP
+

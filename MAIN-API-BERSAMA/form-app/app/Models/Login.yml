@@ -1,0 +1,13 @@
+definitions:
+  Login:
+    type: object
+    properties:
+      id:
+        type: integer
+      email:
+        type: string
+      password:
+        type: string
+    required:
+      - email
+      - password

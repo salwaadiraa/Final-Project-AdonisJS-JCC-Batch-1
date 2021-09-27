@@ -1,0 +1,97 @@
+/api/v1/venues:
+  get:
+    security:
+     - bearerAuth: []
+    tags:
+     - Venues
+    summary: Menampilkan Index Venues
+    responses:
+      200:
+        description: Success get data Index Venues
+      422:
+        description: unauthorized access
+
+  post:
+    security:
+     - bearerAuth: []
+    tags:
+     - Venues
+    summary: Membuat data Venue baru
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#definitions/PostVenue'
+        application/json:
+          schema:
+            $ref: '#definitions/PostVenue'
+    responses:
+      201:
+        description: Success Venues Created!
+      401:
+        description: unauthorized access
+
+/api/v1/venues/{id}:
+  get:
+    security:
+     - bearerAuth: []
+    tags:
+     - Venues
+    summary: Menampilkan Venue by id
+    parameters:
+     - in: path
+       name: id
+       schema:
+         type: integer
+    responses:
+      200:
+        description: Success get data venues by id
+      400:
+        description: Unexpected error
+
+  put:
+    security:
+     - bearerAuth: []
+    tags:
+     - Venues
+    summary: update data Venue by id
+    parameters:
+     - in: path
+       name: id
+       schema:
+         type: integer
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#definitions/PostVenue'
+        application/json:
+          schema:
+            $ref: '#definitions/PostVenue'
+    responses:
+      200:
+        description: Success Update Venues!
+      422:
+        description: unauthorized access
+
+  delete:
+    security:
+     - bearerAuth: []
+    tags:
+     - Venues
+    summary: Menghapus data Venue by id
+    parameters:
+     - in: path
+       name: id
+       schema:
+         type: integer
+    responses:
+      201:
+        description: Deleted
+      401:
+        description: unauthorized access
+  
+  
+

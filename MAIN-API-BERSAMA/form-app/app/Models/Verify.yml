@@ -1,0 +1,13 @@
+definitions:
+  Verify:
+    type: object
+    properties:
+      id:
+        type: integer
+      otp_code:
+        type: string
+      email:
+        type: string
+    required:
+      - otp_code
+      - email
